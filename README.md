@@ -1,2 +1,10 @@
-# ambi-candy-rn
-React Native version of the Ambi Candy Store project
+# Ambi Candy Store React Native
+
+### Getting Started
+
+```
+> git clone git@github.com:wdeanmedical/ambi-candy-rn.git
+> cd ambi-candy-rn
+> yarn install
+> yarn start
+```
