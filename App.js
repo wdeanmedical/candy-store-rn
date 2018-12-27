@@ -1,16 +1,10 @@
 import React from 'react'
-
+import { Provider } from 'react-redux'
 import { StyleSheet, Text, View } from 'react-native'
-
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Yo, Open up App.js to start working on your app!</Text>
-      </View>
-    )
-  }
-}
+import store from './src/config/store'
+import ProviderForm from './src/forms/ProviderForm'
+import ProviderResponseForm from './src/forms/ProviderResponseForm'
+// import { Colors } from './src/constants/Colors'
 
 const styles = StyleSheet.create({
   container: {
@@ -19,4 +13,24 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  screenDivider: {
+    width: 1,
+    // backgroundColor: Colors.dividerColor,
+  },
 })
+
+class App extends React.Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <View style={styles.container}>
+          <ProviderForm />
+          <View className={styles.screenDivider} />
+          <ProviderResponseForm />
+        </View>
+      </Provider>
+    )
+  }
+}
+
+export default App

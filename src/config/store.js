@@ -2,7 +2,7 @@ import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import ReduxThunk from 'redux-thunk'
 import reducer from '../reducers'
-import { APP_INIT } from '../actions/action_types'
+import { APP_INIT } from '../actions'
 
 const middleware = [ReduxThunk]
 
