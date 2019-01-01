@@ -77,20 +77,45 @@ const styles = StyleSheet.create({
     width: 65,
     marginRight: 10,
   },
+  overlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(255, 255, 255, 0.4)',
+    zIndex: 9999,
+    opacity: 1,
+  },
+  displayNone: {
+    display: 'none',
+  },
+  overlayContent: {
+    position: 'absolute',
+    left: '50%',
+    top: '50%',
+  },
+  overlayText: {
+    fontFamily: 'Arial-BoldMT',
+    color: Colors.ambiBlack,
+    fontSize: 16,
+  },
+
+  checkMark: {
+    marginLeft: 50,
+    height: 20,
+    width: 28,
+  },
 })
 
 class ProviderForm extends Component {
   state = {
-    name: '',
-    company: '',
-    website: '',
-    email: '',
-    specialty: '',
-    price: '',
     message: 'enter your suggestion details:',
     title: 'suggestion submission form:',
     submitted: false,
+    fields: {},
     errors: {},
+    overlay: false,
   }
 
   componentDidMount() {}
@@ -100,7 +125,7 @@ class ProviderForm extends Component {
       errors: {},
     })
 
-    const { email, website } = this.state
+    const { fields } = this.state
 
     const errors = {}
     let isValid = true
@@ -108,7 +133,7 @@ class ProviderForm extends Component {
     const urlPattern = new RegExp(
       /(^|\s)((https?:\/\/)?[\w-]+(\.[\w-]+)+\.?(:\d+)?(\/\S*)?)/gi
     )
-    if (!urlPattern.test(website)) {
+    if (!urlPattern.test(fields.website)) {
       isValid = false
       errors.website = 'enter a valid website url...'
     }
@@ -116,7 +141,7 @@ class ProviderForm extends Component {
     const emailPattern = new RegExp(
       /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i
     )
-    if (!emailPattern.test(email)) {
+    if (!emailPattern.test(fields.email)) {
       isValid = false
       errors.email = 'enter a valid email address...'
     }
@@ -125,8 +150,8 @@ class ProviderForm extends Component {
   }
 
   submitForm = () => {
-    const { name, company, website, email, specialty, price } = this.state
-    const providerResponse = { name, company, website, email, specialty, price }
+    const { fields } = this.state
+    const providerResponse = fields
     const { sendProviderResponse } = this.props
 
     if (this.validateForm()) {
@@ -136,24 +161,23 @@ class ProviderForm extends Component {
         title: 'submitted suggestion form',
         message:
           'a rep will respond to your suggestion soon! here is what you submitted:',
+        overlay: true,
       })
+      setTimeout(() => {
+        this.setState({ overlay: false })
+      }, 2200)
     }
+  }
+
+  handleFieldChange = (field, e) => {
+    const { fields } = this.state
+    fields[field] = e.target.value
+    this.setState({ fields })
   }
 
   render() {
     const { ambiResponse } = this.props
-    const {
-      title,
-      message,
-      name,
-      company,
-      website,
-      email,
-      specialty,
-      price,
-      submitted,
-      errors,
-    } = this.state
+    const { title, message, submitted, fields, errors, overlay } = this.state
     return (
       <View className={styles.container}>
         <Text className={styles.title}>{title}</Text>
@@ -165,8 +189,8 @@ class ProviderForm extends Component {
             disabled={submitted === true}
             className={styles.formItemInput}
             placeholder="enter your name..."
-            value={name}
-            onChange={e => this.setState({ name: e.target.value })}
+            value={fields.name}
+            onChange={e => this.handleFieldChange('name', e)}
           />
         </View>
         <View className={styles.formItem}>
@@ -176,8 +200,8 @@ class ProviderForm extends Component {
             disabled={submitted === true}
             className={styles.formItemInput}
             placeholder="enter your company name..."
-            value={company}
-            onChange={e => this.setState({ company: e.target.value })}
+            value={fields.company}
+            onChange={e => this.handleFieldChange('company', e)}
           />
         </View>
         <View className={styles.formItemWithMessage}>
@@ -187,9 +211,9 @@ class ProviderForm extends Component {
             disabled={submitted === true}
             className={styles.formItemInput}
             placeholder="enter your company website..."
-            value={website}
+            value={fields.website}
             autoCapitalize="none"
-            onChange={e => this.setState({ website: e.target.value })}
+            onChange={e => this.handleFieldChange('website', e)}
           />
           <Text className={styles.errorMessage}>{errors.website}</Text>
         </View>
@@ -200,9 +224,9 @@ class ProviderForm extends Component {
             disabled={submitted === true}
             className={styles.formItemInput}
             placeholder="enter your email address..."
-            value={email}
+            value={fields.email}
             autoCapitalize="none"
-            onChange={e => this.setState({ email: e.target.value })}
+            onChange={e => this.handleFieldChange('email', e)}
           />
           <Text className={styles.errorMessage}>{errors.email}</Text>
         </View>
@@ -215,8 +239,8 @@ class ProviderForm extends Component {
             disabled={submitted === true}
             className={styles.formItemInput}
             placeholder="enter a candy name..."
-            value={specialty}
-            onChange={e => this.setState({ specialty: e.target.value })}
+            value={fields.specialty}
+            onChange={e => this.handleFieldChange('specialty', e)}
           />
         </View>
         <View className={styles.formItem}>
@@ -226,8 +250,8 @@ class ProviderForm extends Component {
             disabled={submitted === true}
             className={styles.formItemInput}
             placeholder="enter a suggested price..."
-            value={price}
-            onChange={e => this.setState({ price: e.target.value })}
+            value={fields.price}
+            onChange={e => this.handleFieldChange('price', e)}
           />
         </View>
         {submitted === false && (
@@ -269,6 +293,19 @@ class ProviderForm extends Component {
             </View>
           </View>
         )}
+
+        <View
+          className={overlay === true ? styles.overlay : styles.displayNone}
+        >
+          <View className={styles.overlayContent}>
+            <Image
+              source={Images.checkMark}
+              className={styles.checkMark}
+              alt="check mark"
+            />
+            <Text className={styles.overlayText}>Form Submitted!</Text>
+          </View>
+        </View>
       </View>
     )
   }
