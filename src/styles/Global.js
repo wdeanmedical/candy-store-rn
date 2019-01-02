@@ -1,5 +1,4 @@
 import { Colors } from '../constants/colors'
-import * as Constants from '../constants/constants'
 
 export default {
   button: {
