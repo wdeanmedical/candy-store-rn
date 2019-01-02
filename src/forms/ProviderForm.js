@@ -10,10 +10,12 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native'
+import Overlay from 'react-native-modal-overlay'
 import * as actions from '../actions'
 import * as Constants from '../constants/constants'
+import { Colors } from '../constants/colors'
 
-import styles from '../styles/forms/ProviderResponseForm'
+import styles from '../styles/forms/ProviderForm'
 import globalStyles from '../styles/Global'
 
 class ProviderForm extends Component {
@@ -203,18 +205,28 @@ class ProviderForm extends Component {
             </View>
           )}
 
-          {overlay && (
-            <View className={styles.overlay}>
-              <View className={styles.overlayContent}>
-                <Image
-                  source={Images.checkMark}
-                  className={styles.checkMark}
-                  alt="check mark"
-                />
-                <Text className={styles.overlayText}>Form Submitted!</Text>
-              </View>
+          <Overlay
+            visible={overlay}
+            containerStyle={{ backgroundColor: 'rgba(255, 255, 255, 0.78)' }}
+            childrenWrapperStyle={{ backgroundColor: '#ffffff' }}
+          >
+            <View>
+              <Image
+                source={Images.checkMark}
+                style={{ marginLeft: 50, marginBottom: 20 }}
+                alt="check mark"
+              />
+              <Text
+                style={{
+                  fontFamily: 'Arial-BoldMT',
+                  color: Colors.ambiBlack,
+                  fontSize: 16,
+                }}
+              >
+                Form Submitted!
+              </Text>
             </View>
-          )}
+          </Overlay>
         </View>
       </View>
     )

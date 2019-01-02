@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'
+import { Colors } from '../../constants/colors'
 
 const styles = StyleSheet.create({
   container: {
@@ -62,30 +63,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     width: 65,
     marginRight: 10,
-  },
-  overlay: {
-    position: 'absolute',
-    left: 0,
-    top: 0,
-    bottom: 0,
-    right: 0,
-    opacity: 0.5,
-    backgroundColor: 'black',
-  },
-  overlayContent: {
-    position: 'absolute',
-    left: '50%',
-    top: '50%',
-  },
-  overlayText: {
-    fontFamily: 'Arial-BoldMT',
-    color: Colors.ambiBlack,
-    fontSize: 16,
-  },
-  checkMark: {
-    marginLeft: 50,
-    height: 20,
-    width: 28,
   },
 })
 

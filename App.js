@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import store from './src/config/store'
 import ProviderForm from './src/forms/ProviderForm'
 import ProviderResponseForm from './src/forms/ProviderResponseForm'
-// import { Colors } from './src/constants/Colors'
+import { Colors } from './src/constants/colors'
 
 const styles = StyleSheet.create({
   container: {
@@ -14,8 +14,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   screenDivider: {
-    width: 1,
-    // backgroundColor: Colors.dividerColor,
+    width: 2,
+    backgroundColor: Colors.dividerColor,
   },
 })
 
