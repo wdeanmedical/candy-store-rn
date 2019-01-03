@@ -21,43 +21,43 @@ class ProviderResponseForm extends Component {
   render() {
     const { providerResponse, ambiResponse } = this.props
     return (
-      <View className={styles.container}>
-        <Text className={styles.title}>submitted suggestion form</Text>
+      <View style={styles.container}>
+        <Text style={styles.title}>submitted suggestion form</Text>
         {providerResponse === null && (
-          <Text className={styles.subtitle}>
+          <Text style={styles.subtitle}>
             currently waiting for a response...
           </Text>
         )}
         {providerResponse && (
           <View>
-            <Text className={styles.providerResponseTitle}>suggestion:</Text>
+            <Text style={styles.providerResponseTitle}>suggestion:</Text>
 
-            <View className={styles.providerResponse}>
-              <Text className={styles.providerResponseItem}>
+            <View style={styles.providerResponse}>
+              <Text style={styles.providerResponseItem}>
                 {providerResponse.name}
               </Text>
-              <Text className={styles.providerResponseItem}>
+              <Text style={styles.providerResponseItem}>
                 {providerResponse.company}
               </Text>
-              <Text className={styles.providerResponseItem}>
+              <Text style={styles.providerResponseItem}>
                 {providerResponse.website}
               </Text>
-              <Text className={styles.providerResponseItem}>
+              <Text style={styles.providerResponseItem}>
                 {providerResponse.email}
               </Text>
-              <Text className={styles.providerResponseItem}>
+              <Text style={styles.providerResponseItem}>
                 {providerResponse.specialty}
               </Text>
-              <Text className={styles.providerResponseItem}>
+              <Text style={styles.providerResponseItem}>
                 {providerResponse.price}
               </Text>
             </View>
 
-            <View className={styles.responseForm}>
-              <Text className={styles.responseControlTitle}>
+            <View style={styles.responseForm}>
+              <Text style={styles.responseControlTitle}>
                 submit a response:
               </Text>
-              <View className={styles.responseControls}>
+              <View style={styles.responseControls}>
                 <Image
                   source={
                     ambiResponse &&

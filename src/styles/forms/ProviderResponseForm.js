@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   title: {
-    fontFamily: 'Arial-Black',
+    fontFamily: 'Arial',
     fontSize: 16,
     color: Colors.ambiBlack,
     marginBottom: 10,
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     marginBottom: 18,
   },
   providerResponseItem: {
-    fontFamily: 'Arial-BoldMT',
+    fontFamily: 'Arial',
     fontSize: 14,
     color: Colors.ambiBlack,
     marginTop: 6,
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     marginLeft: 20,
   },
   responseControlTitle: {
-    fontFamily: 'Arial-BoldMT',
+    fontFamily: 'Arial',
     fontSize: 13,
     color: Colors.battleshipGrey,
     marginTop: 15,

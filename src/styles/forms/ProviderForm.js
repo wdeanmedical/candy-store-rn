@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   title: {
-    fontFamily: 'Arial-Black',
+    fontFamily: 'Arial',
     fontSize: 16,
     color: Colors.ambiBlack,
   },
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   formItemLabel: {
-    fontFamily: 'Arial-BoldMT',
+    fontFamily: 'Arial',
     fontSize: 13,
     color: Colors.battleshipGrey,
     marginLeft: 8,

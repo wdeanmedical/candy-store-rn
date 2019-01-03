@@ -25,7 +25,7 @@ class App extends React.Component {
       <Provider store={store}>
         <View style={styles.container}>
           <ProviderForm />
-          <View className={styles.screenDivider} />
+          <View style={styles.screenDivider} />
           <ProviderResponseForm />
         </View>
       </Provider>

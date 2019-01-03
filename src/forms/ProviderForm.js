@@ -65,19 +65,19 @@ class ProviderForm extends Component {
     const { sendProviderResponse } = this.props
     console.log('Provider Form providerResponse', providerResponse)
 
-    //if (this.validateForm()) {
-    sendProviderResponse(providerResponse)
-    this.setState({
-      submitted: true,
-      title: 'submitted suggestion form',
-      message:
-        'a rep will respond to your suggestion soon! here is what you submitted:',
-      overlay: true,
-    })
-    setTimeout(() => {
-      this.setState({ overlay: false })
-    }, 2200)
-    //}
+    if (this.validateForm()) {
+      sendProviderResponse(providerResponse)
+      this.setState({
+        submitted: true,
+        title: 'submitted suggestion form',
+        message:
+          'a rep will respond to your suggestion soon! here is what you submitted:',
+        overlay: true,
+      })
+      setTimeout(() => {
+        this.setState({ overlay: false })
+      }, 2200)
+    }
   }
 
   handleFieldChange = (field, value) => {
@@ -90,84 +90,84 @@ class ProviderForm extends Component {
     const { ambiResponse } = this.props
     const { title, message, submitted, fields, errors, overlay } = this.state
     return (
-      <View className={styles.container}>
+      <View style={styles.container}>
         <View>
-          <Text className={styles.title}>{title}</Text>
-          <Text className={styles.subtitle}>{message}</Text>
-          <View className={styles.formItem}>
-            <Text className={styles.formItemLabel}>name:</Text>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.subtitle}>{message}</Text>
+          <View style={styles.formItem}>
+            <Text style={styles.formItemLabel}>name:</Text>
             <TextInput
               type="text"
               disabled={submitted === true}
-              className={styles.formItemInput}
+              style={styles.formItemInput}
               placeholder="enter your name..."
               value={fields.name}
               onChangeText={value => this.handleFieldChange('name', value)}
             />
           </View>
-          <View className={styles.formItem}>
-            <Text className={styles.formItemLabel}>company:</Text>
+          <View style={styles.formItem}>
+            <Text style={styles.formItemLabel}>company:</Text>
             <TextInput
               type="text"
               disabled={submitted === true}
-              className={styles.formItemInput}
+              style={styles.formItemInput}
               placeholder="enter your company name..."
               value={fields.company}
               onChangeText={value => this.handleFieldChange('company', value)}
             />
           </View>
-          <View className={styles.formItemWithMessage}>
-            <Text className={styles.formItemLabel}>website:</Text>
+          <View style={styles.formItemWithMessage}>
+            <Text style={styles.formItemLabel}>website:</Text>
             <TextInput
               type="text"
               disabled={submitted === true}
-              className={styles.formItemInput}
+              style={styles.formItemInput}
               placeholder="enter your company website..."
               value={fields.website}
               autoCapitalize="none"
               onChangeText={value => this.handleFieldChange('website', value)}
             />
-            <Text className={styles.errorMessage}>{errors.website}</Text>
+            <Text style={styles.errorMessage}>{errors.website}</Text>
           </View>
-          <View className={styles.formItemWithMessage}>
-            <Text className={styles.formItemLabel}>email address:</Text>
+          <View style={styles.formItemWithMessage}>
+            <Text style={styles.formItemLabel}>email address:</Text>
             <TextInput
               type="text"
               disabled={submitted === true}
-              className={styles.formItemInput}
+              style={styles.formItemInput}
               placeholder="enter your email address..."
               value={fields.email}
               autoCapitalize="none"
               onChangeText={value => this.handleFieldChange('email', value)}
             />
-            <Text className={styles.errorMessage}>{errors.email}</Text>
+            <Text style={styles.errorMessage}>{errors.email}</Text>
           </View>
-          <View className={styles.formItem}>
-            <Text className={styles.formItemLabel}>
+          <View style={styles.formItem}>
+            <Text style={styles.formItemLabel}>
               top candy specialty (enter only one):
             </Text>
             <TextInput
               type="text"
               disabled={submitted === true}
-              className={styles.formItemInput}
+              style={styles.formItemInput}
               placeholder="enter a candy name..."
               value={fields.specialty}
               onChangeText={value => this.handleFieldChange('specialty', value)}
             />
           </View>
-          <View className={styles.formItem}>
-            <Text className={styles.formItemLabel}>price per unit:</Text>
+          <View style={styles.formItem}>
+            <Text style={styles.formItemLabel}>price per unit:</Text>
             <TextInput
               type="text"
               disabled={submitted === true}
-              className={styles.formItemInput}
+              style={styles.formItemInput}
               placeholder="enter a suggested price..."
               value={fields.price}
               onChangeText={value => this.handleFieldChange('price', value)}
             />
           </View>
           {submitted === false && (
-            <View className={styles.formControls}>
+            <View style={styles.formControls}>
               <TouchableOpacity
                 style={globalStyles.button}
                 onPress={this.submitForm}
@@ -179,11 +179,11 @@ class ProviderForm extends Component {
           )}
 
           {submitted && (
-            <View className={styles.ambiResponse}>
-              <Text className={styles.ambiResponseTitle}>
+            <View style={styles.ambiResponse}>
+              <Text style={styles.ambiResponseTitle}>
                 candy store rep response:
               </Text>
-              <View className={styles.ambiResponseIcons}>
+              <View style={styles.ambiResponseIcons}>
                 <Image
                   source={
                     ambiResponse === Constants.REJECT
