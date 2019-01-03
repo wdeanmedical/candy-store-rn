@@ -63,6 +63,7 @@ class ProviderForm extends Component {
     const { fields } = this.state
     const providerResponse = fields
     const { sendProviderResponse } = this.props
+    console.log('Provider Form providerResponse', providerResponse)
 
     //if (this.validateForm()) {
     sendProviderResponse(providerResponse)
@@ -79,9 +80,9 @@ class ProviderForm extends Component {
     //}
   }
 
-  handleFieldChange = (field, e) => {
+  handleFieldChange = (field, value) => {
     const { fields } = this.state
-    fields[field] = e.target.value
+    fields[field] = value
     this.setState({ fields })
   }
 
@@ -101,7 +102,7 @@ class ProviderForm extends Component {
               className={styles.formItemInput}
               placeholder="enter your name..."
               value={fields.name}
-              onChange={e => this.handleFieldChange('name', e)}
+              onChangeText={value => this.handleFieldChange('name', value)}
             />
           </View>
           <View className={styles.formItem}>
@@ -112,7 +113,7 @@ class ProviderForm extends Component {
               className={styles.formItemInput}
               placeholder="enter your company name..."
               value={fields.company}
-              onChange={e => this.handleFieldChange('company', e)}
+              onChangeText={value => this.handleFieldChange('company', value)}
             />
           </View>
           <View className={styles.formItemWithMessage}>
@@ -124,7 +125,7 @@ class ProviderForm extends Component {
               placeholder="enter your company website..."
               value={fields.website}
               autoCapitalize="none"
-              onChange={e => this.handleFieldChange('website', e)}
+              onChangeText={value => this.handleFieldChange('website', value)}
             />
             <Text className={styles.errorMessage}>{errors.website}</Text>
           </View>
@@ -137,7 +138,7 @@ class ProviderForm extends Component {
               placeholder="enter your email address..."
               value={fields.email}
               autoCapitalize="none"
-              onChange={e => this.handleFieldChange('email', e)}
+              onChangeText={value => this.handleFieldChange('email', value)}
             />
             <Text className={styles.errorMessage}>{errors.email}</Text>
           </View>
@@ -151,7 +152,7 @@ class ProviderForm extends Component {
               className={styles.formItemInput}
               placeholder="enter a candy name..."
               value={fields.specialty}
-              onChange={e => this.handleFieldChange('specialty', e)}
+              onChangeText={value => this.handleFieldChange('specialty', value)}
             />
           </View>
           <View className={styles.formItem}>
@@ -162,7 +163,7 @@ class ProviderForm extends Component {
               className={styles.formItemInput}
               placeholder="enter a suggested price..."
               value={fields.price}
-              onChange={e => this.handleFieldChange('price', e)}
+              onChangeText={value => this.handleFieldChange('price', value)}
             />
           </View>
           {submitted === false && (

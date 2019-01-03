@@ -91,6 +91,7 @@ class ProviderResponseForm extends Component {
 
 const mapStateToProps = state => {
   const { providerResponse, ambiResponse } = state.app
+  console.log('providerResponse', providerResponse)
   return { providerResponse, ambiResponse }
 }
 
