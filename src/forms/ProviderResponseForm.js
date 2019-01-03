@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { StyleSheet, View, Text, Image } from 'react-native'
+import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native'
 import Images from '@local/assets/index'
 import * as actions from '../actions'
 import * as Constants from '../constants/constants'
 
 import styles from '../styles/forms/ProviderResponseForm'
+import globalStyles from '../styles/Global'
 
 class ProviderResponseForm extends Component {
   state = {}
@@ -58,28 +59,35 @@ class ProviderResponseForm extends Component {
                 submit a response:
               </Text>
               <View style={styles.responseControls}>
-                <Image
-                  source={
-                    ambiResponse &&
-                    ambiResponse.ambiResponse === Constants.REJECT
-                      ? Images.thumbsDownSubmitted
-                      : Images.thumbsDown
-                  }
+                <TouchableOpacity
+                  onPress={() => this.sendAmbiResponse(Constants.REJECT)}
                   accessibilityLabel="Reject"
-                  style={{ height: 30, width: 30 }}
-                  onClick={() => this.sendAmbiResponse(Constants.REJECT)}
-                />
-                <Image
-                  source={
-                    ambiResponse &&
-                    ambiResponse.ambiResponse === Constants.ACCEPT
-                      ? Images.thumbsUpSubmitted
-                      : Images.thumbsUp
-                  }
-                  accessibilityLabel="Reject"
-                  style={{ height: 30, width: 30 }}
-                  onClick={() => this.sendAmbiResponse(Constants.ACCEPT)}
-                />
+                >
+                  <Image
+                    source={
+                      ambiResponse &&
+                      ambiResponse.ambiResponse === Constants.REJECT
+                        ? Images.thumbsDownSubmitted
+                        : Images.thumbsDown
+                    }
+                    style={{ height: 30, width: 30 }}
+                    accessibilityLabel="Reject"
+                  />
+                </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => this.sendAmbiResponse(Constants.ACCEPT)}
+                  accessibilityLabel="Accept"
+                >
+                  <Image
+                    source={
+                      ambiResponse &&
+                      ambiResponse.ambiResponse === Constants.ACCEPT
+                        ? Images.thumbsUpSubmitted
+                        : Images.thumbsUp
+                    }
+                    style={{ height: 30, width: 30 }}
+                  />
+                </TouchableOpacity>
               </View>
             </View>
           </View>
@@ -105,7 +113,9 @@ ProviderResponseForm.propTypes = {
     specialty: PropTypes.string,
     price: PropTypes.string,
   }),
-  ambiResponse: PropTypes.string,
+  ambiResponse: PropTypes.shape({
+    ambiResponse: PropTypes.string,
+  }),
 }
 
 ProviderResponseForm.defaultProps = {

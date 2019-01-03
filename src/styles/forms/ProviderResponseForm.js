@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
   },
   responseControls: {
     display: 'flex',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     width: 75,
     marginTop: 10,

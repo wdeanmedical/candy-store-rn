@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
   },
   ambiResponse: {
     display: 'flex',
+    flexDirection: 'row',
     justifyContent: 'space-between',
   },
   ambiResponseTitle: {
@@ -65,6 +66,7 @@ const styles = StyleSheet.create({
   },
   ambiResponseIcons: {
     display: 'flex',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     width: 65,
     marginRight: 10,
