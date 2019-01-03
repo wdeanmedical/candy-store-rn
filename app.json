@@ -24,6 +24,8 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "React JS Candy Store example, ported to React Native",
+    "githubUrl": "https://github.com/wdeanmedical/ambi-candy-rn"
   }
 }
