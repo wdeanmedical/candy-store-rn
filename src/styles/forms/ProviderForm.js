@@ -36,12 +36,16 @@ const styles = StyleSheet.create({
     width: '100%',
     fontSize: 14,
     color: Colors.ambiBlack,
+    backgroundColor: Colors.white,
     height: 38,
     paddingLeft: 10,
     paddingRight: 10,
     borderRadius: 10,
     borderColor: Colors.textInputBorderColor,
     borderWidth: 1,
+  },
+  formItemInputDisabled: {
+    backgroundColor: Colors.lightGray,
   },
   errorMessage: {
     textAlign: 'right',

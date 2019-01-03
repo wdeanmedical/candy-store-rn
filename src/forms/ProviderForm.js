@@ -98,8 +98,12 @@ class ProviderForm extends Component {
             <Text style={styles.formItemLabel}>name:</Text>
             <TextInput
               type="text"
-              disabled={submitted === true}
-              style={styles.formItemInput}
+              editable={submitted === false}
+              style={
+                submitted === false
+                  ? styles.formItemInput
+                  : [styles.formItemInput, styles.formItemInputDisabled]
+              }
               placeholder="enter your name..."
               value={fields.name}
               onChangeText={value => this.handleFieldChange('name', value)}
@@ -109,8 +113,12 @@ class ProviderForm extends Component {
             <Text style={styles.formItemLabel}>company:</Text>
             <TextInput
               type="text"
-              disabled={submitted === true}
-              style={styles.formItemInput}
+              editable={submitted === false}
+              style={
+                submitted === false
+                  ? styles.formItemInput
+                  : [styles.formItemInput, styles.formItemInputDisabled]
+              }
               placeholder="enter your company name..."
               value={fields.company}
               onChangeText={value => this.handleFieldChange('company', value)}
@@ -120,8 +128,12 @@ class ProviderForm extends Component {
             <Text style={styles.formItemLabel}>website:</Text>
             <TextInput
               type="text"
-              disabled={submitted === true}
-              style={styles.formItemInput}
+              editable={submitted === false}
+              style={
+                submitted === false
+                  ? styles.formItemInput
+                  : [styles.formItemInput, styles.formItemInputDisabled]
+              }
               placeholder="enter your company website..."
               value={fields.website}
               autoCapitalize="none"
@@ -133,8 +145,12 @@ class ProviderForm extends Component {
             <Text style={styles.formItemLabel}>email address:</Text>
             <TextInput
               type="text"
-              disabled={submitted === true}
-              style={styles.formItemInput}
+              editable={submitted === false}
+              style={
+                submitted === false
+                  ? styles.formItemInput
+                  : [styles.formItemInput, styles.formItemInputDisabled]
+              }
               placeholder="enter your email address..."
               value={fields.email}
               autoCapitalize="none"
@@ -148,8 +164,12 @@ class ProviderForm extends Component {
             </Text>
             <TextInput
               type="text"
-              disabled={submitted === true}
-              style={styles.formItemInput}
+              editable={submitted === false}
+              style={
+                submitted === false
+                  ? styles.formItemInput
+                  : [styles.formItemInput, styles.formItemInputDisabled]
+              }
               placeholder="enter a candy name..."
               value={fields.specialty}
               onChangeText={value => this.handleFieldChange('specialty', value)}
@@ -159,8 +179,12 @@ class ProviderForm extends Component {
             <Text style={styles.formItemLabel}>price per unit:</Text>
             <TextInput
               type="text"
-              disabled={submitted === true}
-              style={styles.formItemInput}
+              editable={submitted === false}
+              style={
+                submitted === false
+                  ? styles.formItemInput
+                  : [styles.formItemInput, styles.formItemInputDisabled]
+              }
               placeholder="enter a suggested price..."
               value={fields.price}
               onChangeText={value => this.handleFieldChange('price', value)}
