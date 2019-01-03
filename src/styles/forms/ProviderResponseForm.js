@@ -3,21 +3,21 @@ import { Colors } from '../../constants/colors'
 
 const styles = StyleSheet.create({
   container: {
-    width: 300,
+    width: 350,
     backgroundColor: Colors.white,
-    borderWidth: 2,
+    borderWidth: 1,
     borderRadius: 10,
-    borderColor: Colors.cardBorderColor,
+    borderColor: Colors.gray,
     padding: 20,
   },
   title: {
     fontFamily: 'Arial',
-    fontSize: 16,
+    fontSize: 18,
     color: Colors.ambiBlack,
     marginBottom: 10,
   },
   subtitle: {
-    fontSize: 13,
+    fontSize: 14,
     color: Colors.battleshipGrey,
     marginTop: 20,
     marginBottom: 20,
@@ -26,14 +26,14 @@ const styles = StyleSheet.create({
     marginLeft: 20,
   },
   providerResponseTitle: {
-    fontSize: 13,
-    color: Colors.battleshipGrey,
-    marginTop: 13,
-    marginBottom: 18,
+    fontSize: 16,
+    color: Colors.ambiBlack,
+    marginTop: 12,
+    marginBottom: 16,
   },
   providerResponseItem: {
     fontFamily: 'Arial',
-    fontSize: 14,
+    fontSize: 16,
     color: Colors.ambiBlack,
     marginTop: 6,
     marginBottom: 6,
@@ -43,8 +43,8 @@ const styles = StyleSheet.create({
   },
   responseControlTitle: {
     fontFamily: 'Arial',
-    fontSize: 13,
-    color: Colors.battleshipGrey,
+    fontSize: 16,
+    color: Colors.ambiBlack,
     marginTop: 15,
   },
   responseControls: {
@@ -53,12 +53,6 @@ const styles = StyleSheet.create({
     width: 75,
     marginTop: 10,
     marginLeft: 25,
-  },
-  errorMessage: {
-    textAlign: 'right',
-    fontSize: 12,
-    color: Colors.ambiErrorColor,
-    minHeight: 18,
   },
 })
 

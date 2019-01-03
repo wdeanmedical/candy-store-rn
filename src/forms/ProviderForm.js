@@ -65,19 +65,19 @@ class ProviderForm extends Component {
     const { sendProviderResponse } = this.props
     console.log('Provider Form providerResponse', providerResponse)
 
-    if (this.validateForm()) {
-      sendProviderResponse(providerResponse)
-      this.setState({
-        submitted: true,
-        title: 'submitted suggestion form',
-        message:
-          'a rep will respond to your suggestion soon! here is what you submitted:',
-        overlay: true,
-      })
-      setTimeout(() => {
-        this.setState({ overlay: false })
-      }, 2200)
-    }
+    // if (this.validateForm()) {
+    sendProviderResponse(providerResponse)
+    this.setState({
+      submitted: true,
+      title: 'submitted suggestion form',
+      message:
+        'a rep will respond to your suggestion soon! here is what you submitted:',
+      overlay: true,
+    })
+    setTimeout(() => {
+      this.setState({ overlay: false })
+    }, 2200)
+    // }
   }
 
   handleFieldChange = (field, value) => {

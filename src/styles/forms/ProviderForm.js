@@ -3,21 +3,21 @@ import { Colors } from '../../constants/colors'
 
 const styles = StyleSheet.create({
   container: {
-    width: 500,
+    width: 350,
     backgroundColor: Colors.white,
-    borderWidth: 2,
+    borderWidth: 1,
     borderRadius: 10,
-    borderColor: Colors.cardBorderColor,
+    borderColor: Colors.gray,
     padding: 10,
-    flex: 1,
   },
   title: {
     fontFamily: 'Arial',
-    fontSize: 16,
+    fontSize: 18,
     color: Colors.ambiBlack,
+    marginBottom: 10,
   },
   subtitle: {
-    fontSize: 13,
+    fontSize: 14,
     color: Colors.battleshipGrey,
     marginBottom: 10,
   },
@@ -27,9 +27,10 @@ const styles = StyleSheet.create({
   },
   formItemLabel: {
     fontFamily: 'Arial',
-    fontSize: 13,
-    color: Colors.battleshipGrey,
-    marginLeft: 8,
+    fontSize: 14,
+    color: Colors.ambiBlack,
+    marginLeft: 4,
+    marginBottom: 2,
   },
   formItemInput: {
     width: '100%',
@@ -44,7 +45,7 @@ const styles = StyleSheet.create({
   },
   errorMessage: {
     textAlign: 'right',
-    fontSize: 12,
+    fontSize: 14,
     color: Colors.ambiErrorColor,
     minHeight: 18,
   },
@@ -54,7 +55,7 @@ const styles = StyleSheet.create({
   },
   ambiResponseTitle: {
     fontFamily: 'Arial-BoldMT',
-    fontSize: 13,
+    fontSize: 16,
     color: Colors.battleshipGrey,
     marginLeft: 8,
   },
