@@ -67,8 +67,8 @@ class ProviderResponseForm extends Component {
                     source={
                       ambiResponse &&
                       ambiResponse.ambiResponse === Constants.REJECT
-                        ? Images.thumbsDownSubmitted
-                        : Images.thumbsDown
+                        ? Images.thumbsDownButtonSubmitted
+                        : Images.thumbsDownButton
                     }
                     style={{ height: 30, width: 30 }}
                     accessibilityLabel="Reject"
@@ -82,8 +82,8 @@ class ProviderResponseForm extends Component {
                     source={
                       ambiResponse &&
                       ambiResponse.ambiResponse === Constants.ACCEPT
-                        ? Images.thumbsUpSubmitted
-                        : Images.thumbsUp
+                        ? Images.thumbsUpButtonSubmitted
+                        : Images.thumbsUpButton
                     }
                     style={{ height: 30, width: 30 }}
                   />
