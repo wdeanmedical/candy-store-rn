@@ -17,6 +17,7 @@ const FormTextInput = props => {
     <View style={styles.formItemWithMessage}>
       <Text style={styles.formItemLabel}>{field.label}</Text>
       <TextInput
+        autoCapitalize="none"
         editable={submitted === false}
         style={
           submitted === false
