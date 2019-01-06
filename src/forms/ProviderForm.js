@@ -2,17 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import Images from '@local/assets'
-import {
-  StyleSheet,
-  View,
-  TextInput,
-  Text,
-  Image,
-  TouchableOpacity,
-} from 'react-native'
+import { View, Text, Image, TouchableOpacity } from 'react-native'
 import Overlay from 'react-native-modal-overlay'
 import * as actions from '../actions'
 import * as Constants from '../constants/constants'
+import form from '../config/fields'
 import { Colors } from '../constants/colors'
 
 import styles from '../styles/forms/ProviderForm'
@@ -86,6 +80,21 @@ class ProviderForm extends Component {
     this.setState({ fields })
   }
 
+  formMapper(field) {
+    const { FormComponent } = field
+    const { fields, errors, submitted } = this.state
+    return (
+      <FormComponent
+        field={field}
+        submitted={submitted}
+        handleFieldChange={this.handleFieldChange}
+        key={field.id}
+        value={fields[field.name]}
+        errorMessage={errors[field.name]}
+      />
+    )
+  }
+
   render() {
     const { ambiResponse } = this.props
     const { title, message, submitted, fields, errors, overlay } = this.state
@@ -94,102 +103,9 @@ class ProviderForm extends Component {
         <View>
           <Text style={styles.title}>{title}</Text>
           <Text style={styles.subtitle}>{message}</Text>
-          <View style={styles.formItem}>
-            <Text style={styles.formItemLabel}>name:</Text>
-            <TextInput
-              type="text"
-              editable={submitted === false}
-              style={
-                submitted === false
-                  ? styles.formItemInput
-                  : [styles.formItemInput, styles.formItemInputDisabled]
-              }
-              placeholder="enter your name..."
-              value={fields.name}
-              onChangeText={value => this.handleFieldChange('name', value)}
-            />
-          </View>
-          <View style={styles.formItem}>
-            <Text style={styles.formItemLabel}>company:</Text>
-            <TextInput
-              type="text"
-              editable={submitted === false}
-              style={
-                submitted === false
-                  ? styles.formItemInput
-                  : [styles.formItemInput, styles.formItemInputDisabled]
-              }
-              placeholder="enter your company name..."
-              value={fields.company}
-              onChangeText={value => this.handleFieldChange('company', value)}
-            />
-          </View>
-          <View style={styles.formItemWithMessage}>
-            <Text style={styles.formItemLabel}>website:</Text>
-            <TextInput
-              type="text"
-              editable={submitted === false}
-              style={
-                submitted === false
-                  ? styles.formItemInput
-                  : [styles.formItemInput, styles.formItemInputDisabled]
-              }
-              placeholder="enter your company website..."
-              value={fields.website}
-              autoCapitalize="none"
-              onChangeText={value => this.handleFieldChange('website', value)}
-            />
-            <Text style={styles.errorMessage}>{errors.website}</Text>
-          </View>
-          <View style={styles.formItemWithMessage}>
-            <Text style={styles.formItemLabel}>email address:</Text>
-            <TextInput
-              type="text"
-              editable={submitted === false}
-              style={
-                submitted === false
-                  ? styles.formItemInput
-                  : [styles.formItemInput, styles.formItemInputDisabled]
-              }
-              placeholder="enter your email address..."
-              value={fields.email}
-              autoCapitalize="none"
-              onChangeText={value => this.handleFieldChange('email', value)}
-            />
-            <Text style={styles.errorMessage}>{errors.email}</Text>
-          </View>
-          <View style={styles.formItem}>
-            <Text style={styles.formItemLabel}>
-              top candy specialty (enter only one):
-            </Text>
-            <TextInput
-              type="text"
-              editable={submitted === false}
-              style={
-                submitted === false
-                  ? styles.formItemInput
-                  : [styles.formItemInput, styles.formItemInputDisabled]
-              }
-              placeholder="enter a candy name..."
-              value={fields.specialty}
-              onChangeText={value => this.handleFieldChange('specialty', value)}
-            />
-          </View>
-          <View style={styles.formItem}>
-            <Text style={styles.formItemLabel}>price per unit:</Text>
-            <TextInput
-              type="text"
-              editable={submitted === false}
-              style={
-                submitted === false
-                  ? styles.formItemInput
-                  : [styles.formItemInput, styles.formItemInputDisabled]
-              }
-              placeholder="enter a suggested price..."
-              value={fields.price}
-              onChangeText={value => this.handleFieldChange('price', value)}
-            />
-          </View>
+
+          {form.map(this.formMapper, this)}
+
           {submitted === false && (
             <View style={styles.formControls}>
               <TouchableOpacity
