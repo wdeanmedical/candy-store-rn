@@ -1,35 +1,23 @@
 import React from 'react'
-import {
-  StyleSheet,
-  View,
-  TextInput,
-  Text,
-  Image,
-  TouchableOpacity,
-} from 'react-native'
 import PropTypes from 'prop-types'
-import FieldShape from '../shapes/FieldShape'
-import styles from '../styles/forms/ProviderForm.js'
+import FieldShape from '../../shapes/FieldShape'
+import TextInputStyled from './form_text_input_styles'
 
 const FormTextInput = props => {
   const { field, submitted, handleFieldChange, value, errorMessage } = props
   return (
-    <View style={styles.formItemWithMessage}>
-      <Text style={styles.formItemLabel}>{field.label}</Text>
-      <TextInput
+    <TextInputStyled>
+      <TextInputStyled.itemLabel>{field.label}</TextInputStyled.itemLabel>
+      <TextInputStyled.input
+        {...props}
         autoCapitalize="none"
         editable={submitted === false}
-        style={
-          submitted === false
-            ? styles.formItemInput
-            : [styles.formItemInput, styles.formItemInputDisabled]
-        }
         placeholder={field.placeholder}
         value={value}
         onChangeText={value => handleFieldChange(field.name, value)}
       />
-      <Text style={styles.errorMessage}>{errorMessage}</Text>
-    </View>
+      <TextInputStyled.errorMsg>{errorMessage}</TextInputStyled.errorMsg>
+    </TextInputStyled>
   )
 }
 

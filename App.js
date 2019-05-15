@@ -1,33 +1,22 @@
 import React from 'react'
+import { ScrollView } from 'react-native'
 import { Provider } from 'react-redux'
-import { StyleSheet, Text, View, ScrollView } from 'react-native'
 import store from './src/config/store'
 import ProviderForm from './src/forms/ProviderForm'
 import ProviderResponseForm from './src/forms/ProviderResponseForm'
-import { Colors } from './src/constants/colors'
-
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 50,
-    backgroundColor: Colors.white,
-    alignItems: 'center',
-  },
-  screenDivider: {
-    height: 30,
-  },
-})
+import AppStyled from './app_styles'
 
 class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <ScrollView>
-          <View style={styles.container}>
+        <AppStyled>
+          <AppStyled.container>
             <ProviderForm />
-            <View style={styles.screenDivider} />
+            <AppStyled.screenDivider />
             <ProviderResponseForm />
-          </View>
-        </ScrollView>
+          </AppStyled.container>
+        </AppStyled>
       </Provider>
     )
   }
