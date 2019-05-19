@@ -12,49 +12,49 @@ class ResponseForm extends Component {
 
   componentDidMount() {}
 
-  sendAmbiResponse = ambiResponse => {
-    const { sendAmbiResponse } = this.props
-    sendAmbiResponse({ ambiResponse })
+  sendResponse = response => {
+    const { sendResponse } = this.props
+    sendResponse({ response })
   }
 
   render() {
-    const { providerResponse, ambiResponse } = this.props
+    const { order, response } = this.props
     return (
       <ResponseFormStyled>
         <ResponseFormStyled.title>
           submitted suggestion form
         </ResponseFormStyled.title>
-        {providerResponse === null && (
+        {order === null && (
           <ResponseFormStyled.subtitle>
             currently waiting for a response...
           </ResponseFormStyled.subtitle>
         )}
-        {providerResponse && (
+        {order && (
           <View>
-            <ResponseFormStyled.responseTitle>
+            <ResponseFormStyled.orderTitle>
               suggestion:
-            </ResponseFormStyled.responseTitle>
+            </ResponseFormStyled.orderTitle>
 
-            <ResponseFormStyled.response>
-              <ResponseFormStyled.responseItem>
-                {providerResponse.name}
-              </ResponseFormStyled.responseItem>
-              <ResponseFormStyled.responseItem>
-                {providerResponse.company}
-              </ResponseFormStyled.responseItem>
-              <ResponseFormStyled.responseItem>
-                {providerResponse.website}
-              </ResponseFormStyled.responseItem>
-              <ResponseFormStyled.responseItem>
-                {providerResponse.email}
-              </ResponseFormStyled.responseItem>
-              <ResponseFormStyled.responseItem>
-                {providerResponse.specialty}
-              </ResponseFormStyled.responseItem>
-              <ResponseFormStyled.responseItem>
-                {providerResponse.price}
-              </ResponseFormStyled.responseItem>
-            </ResponseFormStyled.response>
+            <ResponseFormStyled.order>
+              <ResponseFormStyled.orderItem>
+                {order.name}
+              </ResponseFormStyled.orderItem>
+              <ResponseFormStyled.orderItem>
+                {order.company}
+              </ResponseFormStyled.orderItem>
+              <ResponseFormStyled.orderItem>
+                {order.website}
+              </ResponseFormStyled.orderItem>
+              <ResponseFormStyled.orderItem>
+                {order.email}
+              </ResponseFormStyled.orderItem>
+              <ResponseFormStyled.orderItem>
+                {order.specialty}
+              </ResponseFormStyled.orderItem>
+              <ResponseFormStyled.orderItem>
+                {order.price}
+              </ResponseFormStyled.orderItem>
+            </ResponseFormStyled.order>
 
             <ResponseFormStyled.responseForm>
               <ResponseFormStyled.controlTitle>
@@ -62,13 +62,12 @@ class ResponseForm extends Component {
               </ResponseFormStyled.controlTitle>
               <ResponseFormStyled.controls>
                 <TouchableOpacity
-                  onPress={() => this.sendAmbiResponse(Constants.REJECT)}
+                  onPress={() => this.sendResponse(Constants.REJECT)}
                   accessibilityLabel="Reject"
                 >
-                  <ResponseFormStyled.ambiResponse
+                  <ResponseFormStyled.response
                     source={
-                      ambiResponse &&
-                      ambiResponse.ambiResponse === Constants.REJECT
+                      response && response.response === Constants.REJECT
                         ? Images.thumbsDownButtonSubmitted
                         : Images.thumbsDownButton
                     }
@@ -76,13 +75,12 @@ class ResponseForm extends Component {
                   />
                 </TouchableOpacity>
                 <TouchableOpacity
-                  onPress={() => this.sendAmbiResponse(Constants.ACCEPT)}
+                  onPress={() => this.sendResponse(Constants.ACCEPT)}
                   accessibilityLabel="Accept"
                 >
-                  <ResponseFormStyled.ambiResponse
+                  <ResponseFormStyled.response
                     source={
-                      ambiResponse &&
-                      ambiResponse.ambiResponse === Constants.ACCEPT
+                      response && response.response === Constants.ACCEPT
                         ? Images.thumbsUpButtonSubmitted
                         : Images.thumbsUpButton
                     }
@@ -98,14 +96,14 @@ class ResponseForm extends Component {
 }
 
 const mapStateToProps = state => {
-  const { providerResponse, ambiResponse } = state.app
-  console.log('providerResponse', providerResponse)
-  return { providerResponse, ambiResponse }
+  const { order, response } = state.app
+  console.log('order', order)
+  return { order, response }
 }
 
 ResponseForm.propTypes = {
-  sendAmbiResponse: PropTypes.func,
-  providerResponse: PropTypes.shape({
+  sendResponse: PropTypes.func,
+  order: PropTypes.shape({
     name: PropTypes.string,
     company: PropTypes.string,
     email: PropTypes.string,
@@ -113,15 +111,15 @@ ResponseForm.propTypes = {
     specialty: PropTypes.string,
     price: PropTypes.string,
   }),
-  ambiResponse: PropTypes.shape({
-    ambiResponse: PropTypes.string,
+  response: PropTypes.shape({
+    response: PropTypes.string,
   }),
 }
 
 ResponseForm.defaultProps = {
-  sendAmbiResponse: undefined,
-  providerResponse: {},
-  ambiResponse: null,
+  sendResponse: undefined,
+  order: {},
+  response: null,
 }
 
 export default connect(

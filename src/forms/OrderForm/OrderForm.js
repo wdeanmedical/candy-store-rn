@@ -52,12 +52,12 @@ class OrderForm extends Component {
 
   submitForm = () => {
     const { fields } = this.state
-    const providerResponse = fields
-    const { sendProviderResponse } = this.props
-    console.log('Provider Form providerResponse', providerResponse)
+    const order = fields
+    const { sendOrder } = this.props
+    console.log('Order Form order', order)
 
     if (this.validateForm()) {
-      sendProviderResponse(providerResponse)
+      sendOrder(order)
       this.setState({
         submitted: true,
         title: 'submitted suggestion form',
@@ -93,7 +93,7 @@ class OrderForm extends Component {
   }
 
   render() {
-    const { ambiResponse } = this.props
+    const { response } = this.props
     const { title, message, submitted, fields, errors, overlay } = this.state
     return (
       <OrderFormStyled>
@@ -113,29 +113,29 @@ class OrderForm extends Component {
           )}
 
           {submitted && (
-            <OrderFormStyled.ambiResponse>
-              <OrderFormStyled.ambiResponseTitle>
+            <OrderFormStyled.response>
+              <OrderFormStyled.responseTitle>
                 candy store rep response:
-              </OrderFormStyled.ambiResponseTitle>
-              <OrderFormStyled.ambiResponseIcons>
-                <OrderFormStyled.ambiResponseIcon
+              </OrderFormStyled.responseTitle>
+              <OrderFormStyled.responseIcons>
+                <OrderFormStyled.responseIcon
                   source={
-                    ambiResponse === Constants.REJECT
+                    response === Constants.REJECT
                       ? Images.thumbsDownSubmitted
                       : Images.thumbsDown
                   }
                   accessibilityLabel="Reject"
                 />
-                <OrderFormStyled.ambiResponseIcon
+                <OrderFormStyled.responseIcon
                   source={
-                    ambiResponse === Constants.ACCEPT
+                    response === Constants.ACCEPT
                       ? Images.thumbsUpSubmitted
                       : Images.thumbsUp
                   }
                   accessibilityLabel="Accept"
                 />
-              </OrderFormStyled.ambiResponseIcons>
-            </OrderFormStyled.ambiResponse>
+              </OrderFormStyled.responseIcons>
+            </OrderFormStyled.response>
           )}
 
           <Overlay
@@ -160,18 +160,18 @@ class OrderForm extends Component {
 }
 
 const mapStateToProps = state => {
-  const { ambiResponse } = state.app
-  return ambiResponse || {}
+  const { response } = state.app
+  return response || {}
 }
 
 OrderForm.propTypes = {
-  ambiResponse: PropTypes.string,
-  sendProviderResponse: PropTypes.func,
+  response: PropTypes.string,
+  sendOrder: PropTypes.func,
 }
 
 OrderForm.defaultProps = {
-  ambiResponse: null,
-  sendProviderResponse: undefined,
+  response: null,
+  sendOrder: undefined,
 }
 
 export default connect(

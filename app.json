@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "ambi-candy-rn",
-    "slug": "ambi-candy-rn",
+    "name": "candy-store-rn",
+    "slug": "candy-store-rn",
     "privacy": "public",
     "sdkVersion": "31.0.0",
     "platforms": [
@@ -26,6 +26,6 @@
       "supportsTablet": true
     },
     "description": "React JS Candy Store example, ported to React Native",
-    "githubUrl": "https://github.com/wdeanmedical/ambi-candy-rn"
+    "githubUrl": "https://github.com/wdeanmedical/candy-store-rn"
   }
 }

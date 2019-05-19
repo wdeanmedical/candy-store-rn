@@ -1,16 +1,16 @@
-# Ambi Candy Store React Native
+# Candy Store React Native
 
 ### Getting Started
 
 ```
-> git clone git@github.com:wdeanmedical/ambi-candy-rn.git
-> cd ambi-candy-rn
+> git clone git@github.com:wdeanmedical/candy-store-rn.git
+> cd candy-store-rn
 > yarn install
 > yarn start
 ```
 
 #### Live Instance on Expo:
-<a href="https://expo.io/@nickmdf/ambi-candy-rn" target="_blank" rel="noopener noreferrer">https://expo.io/@nickmdf/ambi-candy-rn</a>
+<a href="https://expo.io/@nickmdf/candy-store-rn" target="_blank" rel="noopener noreferrer">https://expo.io/@nickmdf/candy-store-rn</a>
 
 #### Application in action:
 

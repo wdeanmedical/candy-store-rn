@@ -23,25 +23,25 @@ ResponseFormStyled.controls = styled.View`
 ResponseFormStyled.title = styled.Text`
   font-family: Arial;
   font-size: 18px;
-  color: ${Colors.ambiBlack};
+  color: ${Colors.black};
   margin-bottom: 10px;
 `
 
-ResponseFormStyled.responseItem = styled.Text`
+ResponseFormStyled.orderItem = styled.Text`
   font-family: Arial;
   font-size: 16px;
-  color: ${Colors.ambiBlack};
+  color: ${Colors.black};
   margin-top: 6px;
   margin-bottom: 6px;
 `
 ResponseFormStyled.controlTitle = styled.Text`
   font-family: Arial;
   font-size: 16px;
-  color: ${Colors.ambiBlack};
+  color: ${Colors.black};
   margin-top: 15px;
 `
 
-ResponseFormStyled.response = styled.View`
+ResponseFormStyled.order = styled.View`
   margin-left: 20px;
 `
 
@@ -49,9 +49,9 @@ ResponseFormStyled.responseForm = styled.View`
   margin-left: 20px;
 `
 
-ResponseFormStyled.responseTitle = styled.Text`
+ResponseFormStyled.orderTitle = styled.Text`
   font-size: 16px;
-  color: ${Colors.ambiBlack};
+  color: ${Colors.black};
   margin-top: 12px;
   margin-bottom: 16px;
 `
@@ -63,7 +63,7 @@ ResponseFormStyled.subtitle = styled.Text`
   margin-bottom: 20px;
 `
 
-ResponseFormStyled.ambiResponse = styled.Image`
+ResponseFormStyled.response = styled.Image`
   width: 30px;
   height: 30px;
 `

@@ -6,7 +6,7 @@ const TextInputStyled = styled.View``
 TextInputStyled.itemLabel = styled.Text`
   font-family: Arial;
   font-size: 14px;
-  color: ${Colors.ambiBlack};
+  color: ${Colors.black};
   margin-left: 4px;
   margin-bottom: 2px;
 `
@@ -14,7 +14,7 @@ TextInputStyled.itemLabel = styled.Text`
 TextInputStyled.input = styled.TextInput`
   width: 100%;
   font-size: 14px;
-  color: ${Colors.ambiBlack};
+  color: ${Colors.black};
   background-color: ${props =>
     props.submitted ? Colors.lightGray : Colors.white};
   height: 38px;
@@ -29,7 +29,7 @@ TextInputStyled.errorMsg = styled.Text`
   text-align: right;
   font-size: 14px;
   font-family: Arial;
-  color: ${Colors.ambiErrorColor};
+  color: ${Colors.errorColor};
   min-height: 18px;
 `
 

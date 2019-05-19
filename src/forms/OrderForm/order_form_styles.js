@@ -13,7 +13,7 @@ const OrderFormStyled = styled.View`
 OrderFormStyled.title = styled.Text`
   font-family: Arial;
   font-size: 18px;
-  color: ${Colors.ambiBlack};
+  color: ${Colors.black};
   margin-bottom: 10px;
 `
 
@@ -40,19 +40,19 @@ OrderFormStyled.buttonText = styled.Text`
   padding: 10px;
 `
 
-OrderFormStyled.ambiResponse = styled.View`
+OrderFormStyled.response = styled.View`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 `
-OrderFormStyled.ambiResponseTitle = styled.Text`
+OrderFormStyled.responseTitle = styled.Text`
   font-family: Arial-BoldMT;
   font-size: 16px;
   color: ${Colors.battleshipGrey};
   margin-left: 8px;
 `
 
-OrderFormStyled.ambiResponseIcons = styled.View`
+OrderFormStyled.responseIcons = styled.View`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -60,7 +60,7 @@ OrderFormStyled.ambiResponseIcons = styled.View`
   margin-right: 10px;
 `
 
-OrderFormStyled.ambiResponseIcon = styled.Image`
+OrderFormStyled.responseIcon = styled.Image`
   width: 20px;
   height: 20px;
 `
@@ -72,7 +72,7 @@ OrderFormStyled.checkMark = styled.Image`
 
 OrderFormStyled.submitMsg = styled.Text`
   font-family: Arial-BoldMT;
-  color: ${Colors.ambiBlack};
+  color: ${Colors.black};
   font-size: 16px;
 `
 
