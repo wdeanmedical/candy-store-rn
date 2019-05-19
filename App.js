@@ -2,8 +2,8 @@ import React from 'react'
 import { ScrollView } from 'react-native'
 import { Provider } from 'react-redux'
 import store from './src/config/store'
-import ProviderForm from './src/forms/ProviderForm'
-import ProviderResponseForm from './src/forms/ProviderResponseForm'
+import ProviderForm from './src/forms/ProviderForm/ProviderForm'
+import ProviderResponseForm from './src/forms/ProviderResponseForm/ProviderResponseForm'
 import AppStyled from './app_styles'
 
 class App extends React.Component {

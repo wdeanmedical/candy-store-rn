@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native'
+import { View, TouchableOpacity } from 'react-native'
 import Images from '@local/assets/index'
-import * as actions from '../actions'
-import * as Constants from '../constants/constants'
-
-import styles from '../styles/forms/ProviderResponseForm'
-import globalStyles from '../styles/Global'
+import * as actions from '../../actions'
+import * as Constants from '../../constants/constants'
+import ProviderResponseFormStyled from './provider_response_form_styles'
 
 class ProviderResponseForm extends Component {
   state = {}
@@ -22,55 +20,58 @@ class ProviderResponseForm extends Component {
   render() {
     const { providerResponse, ambiResponse } = this.props
     return (
-      <View style={styles.container}>
-        <Text style={styles.title}>submitted suggestion form</Text>
+      <ProviderResponseFormStyled>
+        <ProviderResponseFormStyled.title>
+          submitted suggestion form
+        </ProviderResponseFormStyled.title>
         {providerResponse === null && (
-          <Text style={styles.subtitle}>
+          <ProviderResponseFormStyled.subtitle>
             currently waiting for a response...
-          </Text>
+          </ProviderResponseFormStyled.subtitle>
         )}
         {providerResponse && (
           <View>
-            <Text style={styles.providerResponseTitle}>suggestion:</Text>
+            <ProviderResponseFormStyled.responseTitle>
+              suggestion:
+            </ProviderResponseFormStyled.responseTitle>
 
-            <View style={styles.providerResponse}>
-              <Text style={styles.providerResponseItem}>
+            <ProviderResponseFormStyled.response>
+              <ProviderResponseFormStyled.responseItem>
                 {providerResponse.name}
-              </Text>
-              <Text style={styles.providerResponseItem}>
+              </ProviderResponseFormStyled.responseItem>
+              <ProviderResponseFormStyled.responseItem>
                 {providerResponse.company}
-              </Text>
-              <Text style={styles.providerResponseItem}>
+              </ProviderResponseFormStyled.responseItem>
+              <ProviderResponseFormStyled.responseItem>
                 {providerResponse.website}
-              </Text>
-              <Text style={styles.providerResponseItem}>
+              </ProviderResponseFormStyled.responseItem>
+              <ProviderResponseFormStyled.responseItem>
                 {providerResponse.email}
-              </Text>
-              <Text style={styles.providerResponseItem}>
+              </ProviderResponseFormStyled.responseItem>
+              <ProviderResponseFormStyled.responseItem>
                 {providerResponse.specialty}
-              </Text>
-              <Text style={styles.providerResponseItem}>
+              </ProviderResponseFormStyled.responseItem>
+              <ProviderResponseFormStyled.responseItem>
                 {providerResponse.price}
-              </Text>
-            </View>
+              </ProviderResponseFormStyled.responseItem>
+            </ProviderResponseFormStyled.response>
 
-            <View style={styles.responseForm}>
-              <Text style={styles.responseControlTitle}>
+            <ProviderResponseFormStyled.responseForm>
+              <ProviderResponseFormStyled.controlTitle>
                 submit a response:
-              </Text>
-              <View style={styles.responseControls}>
+              </ProviderResponseFormStyled.controlTitle>
+              <ProviderResponseFormStyled.controls>
                 <TouchableOpacity
                   onPress={() => this.sendAmbiResponse(Constants.REJECT)}
                   accessibilityLabel="Reject"
                 >
-                  <Image
+                  <ProviderResponseFormStyled.ambiResponse
                     source={
                       ambiResponse &&
                       ambiResponse.ambiResponse === Constants.REJECT
                         ? Images.thumbsDownButtonSubmitted
                         : Images.thumbsDownButton
                     }
-                    style={{ height: 30, width: 30 }}
                     accessibilityLabel="Reject"
                   />
                 </TouchableOpacity>
@@ -78,21 +79,20 @@ class ProviderResponseForm extends Component {
                   onPress={() => this.sendAmbiResponse(Constants.ACCEPT)}
                   accessibilityLabel="Accept"
                 >
-                  <Image
+                  <ProviderResponseFormStyled.ambiResponse
                     source={
                       ambiResponse &&
                       ambiResponse.ambiResponse === Constants.ACCEPT
                         ? Images.thumbsUpButtonSubmitted
                         : Images.thumbsUpButton
                     }
-                    style={{ height: 30, width: 30 }}
                   />
                 </TouchableOpacity>
-              </View>
-            </View>
+              </ProviderResponseFormStyled.controls>
+            </ProviderResponseFormStyled.responseForm>
           </View>
         )}
-      </View>
+      </ProviderResponseFormStyled>
     )
   }
 }

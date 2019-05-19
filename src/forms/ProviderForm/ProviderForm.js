@@ -2,15 +2,12 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import Images from '@local/assets'
-import { View, Text, Image, TouchableOpacity } from 'react-native'
+import { View } from 'react-native'
 import Overlay from 'react-native-modal-overlay'
-import * as actions from '../actions'
-import * as Constants from '../constants/constants'
-import form from '../config/fields'
-import { Colors } from '../constants/colors'
-
-import styles from '../styles/forms/ProviderForm'
-import globalStyles from '../styles/Global'
+import * as actions from '../../actions'
+import * as Constants from '../../constants/constants'
+import form from '../../config/fields'
+import ProviderFormStyled from './provider_form_styles'
 
 class ProviderForm extends Component {
   state = {
@@ -99,51 +96,48 @@ class ProviderForm extends Component {
     const { ambiResponse } = this.props
     const { title, message, submitted, fields, errors, overlay } = this.state
     return (
-      <View style={styles.container}>
+      <ProviderFormStyled>
         <View>
-          <Text style={styles.title}>{title}</Text>
-          <Text style={styles.subtitle}>{message}</Text>
+          <ProviderFormStyled.title>{title}</ProviderFormStyled.title>
+          <ProviderFormStyled.subtitle>{message}</ProviderFormStyled.subtitle>
 
           {form.map(this.formMapper, this)}
 
           {submitted === false && (
-            <View style={styles.formControls}>
-              <TouchableOpacity
-                style={globalStyles.button}
-                onPress={this.submitForm}
-                accessibilityLabel="Submit"
-              >
-                <Text style={globalStyles.buttonText}>Submit</Text>
-              </TouchableOpacity>
-            </View>
+            <ProviderFormStyled.button
+              onPress={this.submitForm}
+              accessibilityLabel="Submit"
+            >
+              <ProviderFormStyled.buttonText>
+                Submit
+              </ProviderFormStyled.buttonText>
+            </ProviderFormStyled.button>
           )}
 
           {submitted && (
-            <View style={styles.ambiResponse}>
-              <Text style={styles.ambiResponseTitle}>
+            <ProviderFormStyled.ambiResponse>
+              <ProviderFormStyled.ambiResponseTitle>
                 candy store rep response:
-              </Text>
-              <View style={styles.ambiResponseIcons}>
-                <Image
+              </ProviderFormStyled.ambiResponseTitle>
+              <ProviderFormStyled.ambiResponseIcons>
+                <ProviderFormStyled.ambiResponseIcon
                   source={
                     ambiResponse === Constants.REJECT
                       ? Images.thumbsDownSubmitted
                       : Images.thumbsDown
                   }
                   accessibilityLabel="Reject"
-                  style={{ height: 20, width: 20 }}
                 />
-                <Image
+                <ProviderFormStyled.ambiResponseIcon
                   source={
                     ambiResponse === Constants.ACCEPT
                       ? Images.thumbsUpSubmitted
                       : Images.thumbsUp
                   }
                   accessibilityLabel="Accept"
-                  style={{ height: 20, width: 20 }}
                 />
-              </View>
-            </View>
+              </ProviderFormStyled.ambiResponseIcons>
+            </ProviderFormStyled.ambiResponse>
           )}
 
           <Overlay
@@ -152,24 +146,17 @@ class ProviderForm extends Component {
             childrenWrapperStyle={{ backgroundColor: '#ffffff' }}
           >
             <View>
-              <Image
+              <ProviderFormStyled.checkMark
                 source={Images.checkMark}
-                style={{ marginLeft: 50, marginBottom: 20 }}
                 alt="check mark"
               />
-              <Text
-                style={{
-                  fontFamily: 'Arial-BoldMT',
-                  color: Colors.ambiBlack,
-                  fontSize: 16,
-                }}
-              >
+              <ProviderFormStyled.submitMsg>
                 Form Submitted!
-              </Text>
+              </ProviderFormStyled.submitMsg>
             </View>
           </Overlay>
         </View>
-      </View>
+      </ProviderFormStyled>
     )
   }
 }
