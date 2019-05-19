@@ -1,9 +1,8 @@
 import styled from 'styled-components/native/dist/styled-components.native.esm'
 import { Colors } from '../../constants/colors'
 import { Text } from 'react-native'
-import ProviderFormStyled from '../ProviderForm/provider_form_styles'
 
-const ProviderResponseFormStyled = styled.View`
+const ResponseFormStyled = styled.View`
   width: 350px;
   background-color: ${Colors.white};
   border-width: 1px;
@@ -12,7 +11,7 @@ const ProviderResponseFormStyled = styled.View`
   padding: 20px;
 `
 
-ProviderResponseFormStyled.controls = styled.View`
+ResponseFormStyled.controls = styled.View`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -21,52 +20,52 @@ ProviderResponseFormStyled.controls = styled.View`
   margin-left: 25px;
 `
 
-ProviderResponseFormStyled.title = styled.Text`
+ResponseFormStyled.title = styled.Text`
   font-family: Arial;
   font-size: 18px;
   color: ${Colors.ambiBlack};
   margin-bottom: 10px;
 `
 
-ProviderResponseFormStyled.responseItem = styled.Text`
+ResponseFormStyled.responseItem = styled.Text`
   font-family: Arial;
   font-size: 16px;
   color: ${Colors.ambiBlack};
   margin-top: 6px;
   margin-bottom: 6px;
 `
-ProviderResponseFormStyled.controlTitle = styled.Text`
+ResponseFormStyled.controlTitle = styled.Text`
   font-family: Arial;
   font-size: 16px;
   color: ${Colors.ambiBlack};
   margin-top: 15px;
 `
 
-ProviderResponseFormStyled.response = styled.View`
+ResponseFormStyled.response = styled.View`
   margin-left: 20px;
 `
 
-ProviderResponseFormStyled.responseForm = styled.View`
+ResponseFormStyled.responseForm = styled.View`
   margin-left: 20px;
 `
 
-ProviderResponseFormStyled.responseTitle = styled.Text`
+ResponseFormStyled.responseTitle = styled.Text`
   font-size: 16px;
   color: ${Colors.ambiBlack};
   margin-top: 12px;
   margin-bottom: 16px;
 `
 
-ProviderResponseFormStyled.subtitle = styled.Text`
+ResponseFormStyled.subtitle = styled.Text`
   font-size: 14px;
   color: ${Colors.battleshipGrey};
   margin-top: 20px;
   margin-bottom: 20px;
 `
 
-ProviderResponseFormStyled.ambiResponse = styled.Image`
+ResponseFormStyled.ambiResponse = styled.Image`
   width: 30px;
   height: 30px;
 `
 
-export default ProviderResponseFormStyled
+export default ResponseFormStyled

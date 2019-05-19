@@ -1,8 +1,7 @@
 import styled from 'styled-components/native/dist/styled-components.native.esm'
 import { Colors } from '../../constants/colors'
-import { Text } from 'react-native'
 
-const ProviderFormStyled = styled.View`
+const OrderFormStyled = styled.View`
   width: 350px;
   background-color: ${Colors.white};
   border-width: 1px;
@@ -11,20 +10,20 @@ const ProviderFormStyled = styled.View`
   padding: 10px;
 `
 
-ProviderFormStyled.title = styled.Text`
+OrderFormStyled.title = styled.Text`
   font-family: Arial;
   font-size: 18px;
   color: ${Colors.ambiBlack};
   margin-bottom: 10px;
 `
 
-ProviderFormStyled.subtitle = styled.Text`
+OrderFormStyled.subtitle = styled.Text`
   font-size: 14px;
   color: ${Colors.battleshipGrey};
   margin-bottom: 10px;
 `
 
-ProviderFormStyled.button = styled.TouchableOpacity`
+OrderFormStyled.button = styled.TouchableOpacity`
   border-width: 1px;
   border-radius: 5px;
   border-color: ${Colors.azure};
@@ -33,7 +32,7 @@ ProviderFormStyled.button = styled.TouchableOpacity`
   align-self: center;
 `
 
-ProviderFormStyled.buttonText = styled.Text`
+OrderFormStyled.buttonText = styled.Text`
   font-size: 16px;
   color: ${Colors.white};
   align-self: center;
@@ -41,19 +40,19 @@ ProviderFormStyled.buttonText = styled.Text`
   padding: 10px;
 `
 
-ProviderFormStyled.ambiResponse = styled.View`
+OrderFormStyled.ambiResponse = styled.View`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 `
-ProviderFormStyled.ambiResponseTitle = styled.Text`
+OrderFormStyled.ambiResponseTitle = styled.Text`
   font-family: Arial-BoldMT;
   font-size: 16px;
   color: ${Colors.battleshipGrey};
   margin-left: 8px;
 `
 
-ProviderFormStyled.ambiResponseIcons = styled.View`
+OrderFormStyled.ambiResponseIcons = styled.View`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -61,20 +60,20 @@ ProviderFormStyled.ambiResponseIcons = styled.View`
   margin-right: 10px;
 `
 
-ProviderFormStyled.ambiResponseIcon = styled.Image`
+OrderFormStyled.ambiResponseIcon = styled.Image`
   width: 20px;
   height: 20px;
 `
 
-ProviderFormStyled.checkMark = styled.Image`
+OrderFormStyled.checkMark = styled.Image`
   margin-left: 50px;
   margin-bottom: 20px;
 `
 
-ProviderFormStyled.submitMsg = styled.Text`
+OrderFormStyled.submitMsg = styled.Text`
   font-family: Arial-BoldMT;
   color: ${Colors.ambiBlack};
   font-size: 16px;
 `
 
-export default ProviderFormStyled
+export default OrderFormStyled

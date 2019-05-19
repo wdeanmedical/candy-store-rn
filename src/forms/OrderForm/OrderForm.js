@@ -7,9 +7,9 @@ import Overlay from 'react-native-modal-overlay'
 import * as actions from '../../actions'
 import * as Constants from '../../constants/constants'
 import form from '../../config/fields'
-import ProviderFormStyled from './provider_form_styles'
+import OrderFormStyled from './order_form_styles'
 
-class ProviderForm extends Component {
+class OrderForm extends Component {
   state = {
     message: 'enter your suggestion details:',
     title: 'suggestion submission form:',
@@ -96,31 +96,29 @@ class ProviderForm extends Component {
     const { ambiResponse } = this.props
     const { title, message, submitted, fields, errors, overlay } = this.state
     return (
-      <ProviderFormStyled>
+      <OrderFormStyled>
         <View>
-          <ProviderFormStyled.title>{title}</ProviderFormStyled.title>
-          <ProviderFormStyled.subtitle>{message}</ProviderFormStyled.subtitle>
+          <OrderFormStyled.title>{title}</OrderFormStyled.title>
+          <OrderFormStyled.subtitle>{message}</OrderFormStyled.subtitle>
 
           {form.map(this.formMapper, this)}
 
           {submitted === false && (
-            <ProviderFormStyled.button
+            <OrderFormStyled.button
               onPress={this.submitForm}
               accessibilityLabel="Submit"
             >
-              <ProviderFormStyled.buttonText>
-                Submit
-              </ProviderFormStyled.buttonText>
-            </ProviderFormStyled.button>
+              <OrderFormStyled.buttonText>Submit</OrderFormStyled.buttonText>
+            </OrderFormStyled.button>
           )}
 
           {submitted && (
-            <ProviderFormStyled.ambiResponse>
-              <ProviderFormStyled.ambiResponseTitle>
+            <OrderFormStyled.ambiResponse>
+              <OrderFormStyled.ambiResponseTitle>
                 candy store rep response:
-              </ProviderFormStyled.ambiResponseTitle>
-              <ProviderFormStyled.ambiResponseIcons>
-                <ProviderFormStyled.ambiResponseIcon
+              </OrderFormStyled.ambiResponseTitle>
+              <OrderFormStyled.ambiResponseIcons>
+                <OrderFormStyled.ambiResponseIcon
                   source={
                     ambiResponse === Constants.REJECT
                       ? Images.thumbsDownSubmitted
@@ -128,7 +126,7 @@ class ProviderForm extends Component {
                   }
                   accessibilityLabel="Reject"
                 />
-                <ProviderFormStyled.ambiResponseIcon
+                <OrderFormStyled.ambiResponseIcon
                   source={
                     ambiResponse === Constants.ACCEPT
                       ? Images.thumbsUpSubmitted
@@ -136,8 +134,8 @@ class ProviderForm extends Component {
                   }
                   accessibilityLabel="Accept"
                 />
-              </ProviderFormStyled.ambiResponseIcons>
-            </ProviderFormStyled.ambiResponse>
+              </OrderFormStyled.ambiResponseIcons>
+            </OrderFormStyled.ambiResponse>
           )}
 
           <Overlay
@@ -146,17 +144,17 @@ class ProviderForm extends Component {
             childrenWrapperStyle={{ backgroundColor: '#ffffff' }}
           >
             <View>
-              <ProviderFormStyled.checkMark
+              <OrderFormStyled.checkMark
                 source={Images.checkMark}
                 alt="check mark"
               />
-              <ProviderFormStyled.submitMsg>
+              <OrderFormStyled.submitMsg>
                 Form Submitted!
-              </ProviderFormStyled.submitMsg>
+              </OrderFormStyled.submitMsg>
             </View>
           </Overlay>
         </View>
-      </ProviderFormStyled>
+      </OrderFormStyled>
     )
   }
 }
@@ -166,12 +164,12 @@ const mapStateToProps = state => {
   return ambiResponse || {}
 }
 
-ProviderForm.propTypes = {
+OrderForm.propTypes = {
   ambiResponse: PropTypes.string,
   sendProviderResponse: PropTypes.func,
 }
 
-ProviderForm.defaultProps = {
+OrderForm.defaultProps = {
   ambiResponse: null,
   sendProviderResponse: undefined,
 }
@@ -179,4 +177,4 @@ ProviderForm.defaultProps = {
 export default connect(
   mapStateToProps,
   actions
-)(ProviderForm)
+)(OrderForm)

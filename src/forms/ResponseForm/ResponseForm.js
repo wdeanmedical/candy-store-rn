@@ -5,9 +5,9 @@ import { View, TouchableOpacity } from 'react-native'
 import Images from '@local/assets/index'
 import * as actions from '../../actions'
 import * as Constants from '../../constants/constants'
-import ProviderResponseFormStyled from './provider_response_form_styles'
+import ResponseFormStyled from './response_form_styles'
 
-class ProviderResponseForm extends Component {
+class ResponseForm extends Component {
   state = {}
 
   componentDidMount() {}
@@ -20,52 +20,52 @@ class ProviderResponseForm extends Component {
   render() {
     const { providerResponse, ambiResponse } = this.props
     return (
-      <ProviderResponseFormStyled>
-        <ProviderResponseFormStyled.title>
+      <ResponseFormStyled>
+        <ResponseFormStyled.title>
           submitted suggestion form
-        </ProviderResponseFormStyled.title>
+        </ResponseFormStyled.title>
         {providerResponse === null && (
-          <ProviderResponseFormStyled.subtitle>
+          <ResponseFormStyled.subtitle>
             currently waiting for a response...
-          </ProviderResponseFormStyled.subtitle>
+          </ResponseFormStyled.subtitle>
         )}
         {providerResponse && (
           <View>
-            <ProviderResponseFormStyled.responseTitle>
+            <ResponseFormStyled.responseTitle>
               suggestion:
-            </ProviderResponseFormStyled.responseTitle>
+            </ResponseFormStyled.responseTitle>
 
-            <ProviderResponseFormStyled.response>
-              <ProviderResponseFormStyled.responseItem>
+            <ResponseFormStyled.response>
+              <ResponseFormStyled.responseItem>
                 {providerResponse.name}
-              </ProviderResponseFormStyled.responseItem>
-              <ProviderResponseFormStyled.responseItem>
+              </ResponseFormStyled.responseItem>
+              <ResponseFormStyled.responseItem>
                 {providerResponse.company}
-              </ProviderResponseFormStyled.responseItem>
-              <ProviderResponseFormStyled.responseItem>
+              </ResponseFormStyled.responseItem>
+              <ResponseFormStyled.responseItem>
                 {providerResponse.website}
-              </ProviderResponseFormStyled.responseItem>
-              <ProviderResponseFormStyled.responseItem>
+              </ResponseFormStyled.responseItem>
+              <ResponseFormStyled.responseItem>
                 {providerResponse.email}
-              </ProviderResponseFormStyled.responseItem>
-              <ProviderResponseFormStyled.responseItem>
+              </ResponseFormStyled.responseItem>
+              <ResponseFormStyled.responseItem>
                 {providerResponse.specialty}
-              </ProviderResponseFormStyled.responseItem>
-              <ProviderResponseFormStyled.responseItem>
+              </ResponseFormStyled.responseItem>
+              <ResponseFormStyled.responseItem>
                 {providerResponse.price}
-              </ProviderResponseFormStyled.responseItem>
-            </ProviderResponseFormStyled.response>
+              </ResponseFormStyled.responseItem>
+            </ResponseFormStyled.response>
 
-            <ProviderResponseFormStyled.responseForm>
-              <ProviderResponseFormStyled.controlTitle>
+            <ResponseFormStyled.responseForm>
+              <ResponseFormStyled.controlTitle>
                 submit a response:
-              </ProviderResponseFormStyled.controlTitle>
-              <ProviderResponseFormStyled.controls>
+              </ResponseFormStyled.controlTitle>
+              <ResponseFormStyled.controls>
                 <TouchableOpacity
                   onPress={() => this.sendAmbiResponse(Constants.REJECT)}
                   accessibilityLabel="Reject"
                 >
-                  <ProviderResponseFormStyled.ambiResponse
+                  <ResponseFormStyled.ambiResponse
                     source={
                       ambiResponse &&
                       ambiResponse.ambiResponse === Constants.REJECT
@@ -79,7 +79,7 @@ class ProviderResponseForm extends Component {
                   onPress={() => this.sendAmbiResponse(Constants.ACCEPT)}
                   accessibilityLabel="Accept"
                 >
-                  <ProviderResponseFormStyled.ambiResponse
+                  <ResponseFormStyled.ambiResponse
                     source={
                       ambiResponse &&
                       ambiResponse.ambiResponse === Constants.ACCEPT
@@ -88,11 +88,11 @@ class ProviderResponseForm extends Component {
                     }
                   />
                 </TouchableOpacity>
-              </ProviderResponseFormStyled.controls>
-            </ProviderResponseFormStyled.responseForm>
+              </ResponseFormStyled.controls>
+            </ResponseFormStyled.responseForm>
           </View>
         )}
-      </ProviderResponseFormStyled>
+      </ResponseFormStyled>
     )
   }
 }
@@ -103,7 +103,7 @@ const mapStateToProps = state => {
   return { providerResponse, ambiResponse }
 }
 
-ProviderResponseForm.propTypes = {
+ResponseForm.propTypes = {
   sendAmbiResponse: PropTypes.func,
   providerResponse: PropTypes.shape({
     name: PropTypes.string,
@@ -118,7 +118,7 @@ ProviderResponseForm.propTypes = {
   }),
 }
 
-ProviderResponseForm.defaultProps = {
+ResponseForm.defaultProps = {
   sendAmbiResponse: undefined,
   providerResponse: {},
   ambiResponse: null,
@@ -127,4 +127,4 @@ ProviderResponseForm.defaultProps = {
 export default connect(
   mapStateToProps,
   actions
-)(ProviderResponseForm)
+)(ResponseForm)
