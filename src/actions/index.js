@@ -1,9 +1,9 @@
 import { ORDER_SUCCESS, RESPONSE_SUCCESS } from './types'
 
-export function sendOrder(response) {
+export function sendOrder(order) {
   return {
     type: ORDER_SUCCESS,
-    payload: response,
+    payload: order,
   }
 }
 
