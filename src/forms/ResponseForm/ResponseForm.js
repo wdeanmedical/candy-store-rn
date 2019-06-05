@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { View, TouchableOpacity } from 'react-native'
 import Images from '@local/assets/index'
-import * as actions from '../../actions'
+import { sendResponse } from '../../state/actions'
 import * as Constants from '../../constants/constants'
 import ResponseFormStyled from './response_form_styles'
 
@@ -13,8 +13,8 @@ class ResponseForm extends Component {
   componentDidMount() {}
 
   sendResponse = response => {
-    const { sendResponse } = this.props
-    sendResponse({ response })
+    const { sendResponse: dispatchSendResponse } = this.props
+    dispatchSendResponse({ response })
   }
 
   render() {
@@ -97,9 +97,12 @@ class ResponseForm extends Component {
 
 const mapStateToProps = state => {
   const { order, response } = state.app
-  console.log('order', order)
   return { order, response }
 }
+
+const mapDispatchToProps = dispatch => ({
+  sendResponse: response => dispatch(sendResponse(response)),
+})
 
 ResponseForm.propTypes = {
   sendResponse: PropTypes.func,
@@ -124,5 +127,5 @@ ResponseForm.defaultProps = {
 
 export default connect(
   mapStateToProps,
-  actions
+  mapDispatchToProps
 )(ResponseForm)
