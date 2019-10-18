@@ -1,7 +1,7 @@
-import styled from 'styled-components/native/dist/styled-components.native.esm'
-import { Colors } from '../../constants/colors'
+import styled from 'styled-components/native/dist/styled-components.native.esm';
+import {Colors} from '../../constants/colors';
 
-const TextInputStyled = styled.View``
+const TextInputStyled = styled.View``;
 
 TextInputStyled.itemLabel = styled.Text`
   font-family: Arial;
@@ -9,7 +9,7 @@ TextInputStyled.itemLabel = styled.Text`
   color: ${Colors.black};
   margin-left: 4px;
   margin-bottom: 2px;
-`
+`;
 
 TextInputStyled.input = styled.TextInput`
   width: 100%;
@@ -23,7 +23,7 @@ TextInputStyled.input = styled.TextInput`
   border-radius: 10px;
   border-color: ${Colors.textInputBorderColor};
   border-width: 1px;
-`
+`;
 
 TextInputStyled.errorMsg = styled.Text`
   text-align: right;
@@ -31,6 +31,6 @@ TextInputStyled.errorMsg = styled.Text`
   font-family: Arial;
   color: ${Colors.errorColor};
   min-height: 18px;
-`
+`;
 
-export default TextInputStyled
+export default TextInputStyled;

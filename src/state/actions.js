@@ -1,4 +1,4 @@
-import { ORDER, RESPONSE } from './action_types'
+import {ORDER, RESPONSE} from './action_types';
 
 export const sendOrder = order => {
   return {
@@ -6,8 +6,8 @@ export const sendOrder = order => {
     payload: {
       order,
     },
-  }
-}
+  };
+};
 
 export const sendResponse = response => {
   return {
@@ -15,15 +15,15 @@ export const sendResponse = response => {
     payload: {
       response,
     },
-  }
-}
+  };
+};
 
 export const sendOrderSuccess = payload => ({
   type: ORDER.SUCCESS,
   payload,
-})
+});
 
 export const sendResponseSuccess = payload => ({
   type: RESPONSE.SUCCESS,
   payload,
-})
+});

@@ -33,4 +33,4 @@ export const Colors = {
   errorColor: 'rgb(237, 30, 122)',
   textInputDisabledBackground: 'rgb(247, 247, 250)',
   buttonDisabledBackground: 'rgb(206, 209, 217)',
-}
+};

@@ -1,24 +1,24 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
-import { View, TouchableOpacity } from 'react-native'
-import Images from '@local/assets/index'
-import { sendResponse } from '../../state/actions'
-import * as Constants from '../../constants/constants'
-import ResponseFormStyled from './response_form_styles'
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
+import {View, TouchableOpacity} from 'react-native';
+import Images from '@local/assets/index';
+import {sendResponse} from '../../state/actions';
+import * as Constants from '../../constants/constants';
+import ResponseFormStyled from './response_form_styles';
 
 class ResponseForm extends Component {
-  state = {}
+  state = {};
 
   componentDidMount() {}
 
   sendResponse = response => {
-    const { sendResponse: dispatchSendResponse } = this.props
-    dispatchSendResponse({ response })
-  }
+    const {sendResponse: dispatchSendResponse} = this.props;
+    dispatchSendResponse({response});
+  };
 
   render() {
-    const { order, response } = this.props
+    const {order, response} = this.props;
     return (
       <ResponseFormStyled>
         <ResponseFormStyled.title>
@@ -63,8 +63,7 @@ class ResponseForm extends Component {
               <ResponseFormStyled.controls>
                 <TouchableOpacity
                   onPress={() => this.sendResponse(Constants.REJECT)}
-                  accessibilityLabel="Reject"
-                >
+                  accessibilityLabel="Reject">
                   <ResponseFormStyled.response
                     source={
                       response && response.response === Constants.REJECT
@@ -76,8 +75,7 @@ class ResponseForm extends Component {
                 </TouchableOpacity>
                 <TouchableOpacity
                   onPress={() => this.sendResponse(Constants.ACCEPT)}
-                  accessibilityLabel="Accept"
-                >
+                  accessibilityLabel="Accept">
                   <ResponseFormStyled.response
                     source={
                       response && response.response === Constants.ACCEPT
@@ -91,18 +89,18 @@ class ResponseForm extends Component {
           </View>
         )}
       </ResponseFormStyled>
-    )
+    );
   }
 }
 
 const mapStateToProps = state => {
-  const { order, response } = state.app
-  return { order, response }
-}
+  const {order, response} = state.app;
+  return {order, response};
+};
 
 const mapDispatchToProps = dispatch => ({
   sendResponse: response => dispatch(sendResponse(response)),
-})
+});
 
 ResponseForm.propTypes = {
   sendResponse: PropTypes.func,
@@ -117,15 +115,15 @@ ResponseForm.propTypes = {
   response: PropTypes.shape({
     response: PropTypes.string,
   }),
-}
+};
 
 ResponseForm.defaultProps = {
   sendResponse: undefined,
   order: {},
   response: null,
-}
+};
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
-)(ResponseForm)
+  mapDispatchToProps,
+)(ResponseForm);

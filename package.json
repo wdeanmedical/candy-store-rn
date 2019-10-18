@@ -1,19 +1,19 @@
 {
   "name": "candy-store-rn",
-  "main": "node_modules/expo/AppEntry.js",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "eject": "expo eject"
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint ."
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "expo": "^31.0.2",
     "prop-types": "^15.6.2",
-    "react": "16.5.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
+    "react": "16.9.0",
+    "react-native": "0.61.2",
     "react-native-modal-overlay": "^1.3.1",
     "react-navigation": "^3.0.5",
     "react-redux": "^6.0.0",
@@ -22,6 +22,9 @@
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/runtime": "^7.6.3",
+    "@react-native-community/eslint-config": "^0.0.5",
     "babel-eslint": "^8.2.3",
     "babel-jest": "^23.0.1",
     "babel-preset-expo": "^5.0.0",

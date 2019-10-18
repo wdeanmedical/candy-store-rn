@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 export default {
   name: PropTypes.string,
@@ -9,4 +9,4 @@ export default {
   state: PropTypes.string,
   onChange: PropTypes.func,
   onClick: PropTypes.func,
-}
+};

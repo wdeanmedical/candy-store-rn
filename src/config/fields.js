@@ -1,5 +1,5 @@
-import * as Constants from '../constants/constants'
-import FormTextInput from '../components/FormTextInput/FormTextInput'
+import * as Constants from '../constants/constants';
+import FormTextInput from '../components/FormTextInput/FormTextInput';
 
 export default [
   {
@@ -74,4 +74,4 @@ export default [
     onChange: undefined,
     onClick: undefined,
   },
-]
+];

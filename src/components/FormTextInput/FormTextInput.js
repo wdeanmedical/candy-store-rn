@@ -1,10 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import FieldShape from '../../state/shapes/FieldShape'
-import TextInputStyled from './form_text_input_styles'
+import React from 'react';
+import PropTypes from 'prop-types';
+import FieldShape from '../../state/shapes/FieldShape';
+import TextInputStyled from './form_text_input_styles';
 
 const FormTextInput = props => {
-  const { field, submitted, handleFieldChange, value, errorMessage } = props
+  const {field, submitted, handleFieldChange, value, errorMessage} = props;
   return (
     <TextInputStyled>
       <TextInputStyled.itemLabel>{field.label}</TextInputStyled.itemLabel>
@@ -18,8 +18,8 @@ const FormTextInput = props => {
       />
       <TextInputStyled.errorMsg>{errorMessage}</TextInputStyled.errorMsg>
     </TextInputStyled>
-  )
-}
+  );
+};
 
 FormTextInput.propTypes = {
   handleFieldChange: PropTypes.func,
@@ -27,7 +27,7 @@ FormTextInput.propTypes = {
   value: PropTypes.string,
   errorMessage: PropTypes.string,
   field: PropTypes.shape(FieldShape),
-}
+};
 
 FormTextInput.defaultProps = {
   handleFieldChange: undefined,
@@ -35,6 +35,6 @@ FormTextInput.defaultProps = {
   value: '',
   errorMessage: '',
   field: {},
-}
+};
 
-export default FormTextInput
+export default FormTextInput;
